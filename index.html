@@ -35,7 +35,8 @@ nav{
 
 .logo h1{
     line-height: 100px;
-    padding-left: 50px;
+    padding-left: 100px;
+    font-size:300%;
 }
 
 .menu{
@@ -51,10 +52,15 @@ nav{
     justify-content: space-around;
     align-items:  center;
 }
-
+a:link,a:visited{
+     color:white;
+     text-decoration: none;
+}
 .menu ul li{
     list-style: none;
-    font-size: 12px;
+
+    color:white;
+    font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -115,10 +121,10 @@ section{ display: flex;
   </div>
   <div class="menu"> 
    <ul>
-    <li>Home</li>
+    <li><a href="index.html">Home</a></li>
     <li>Movies</li>
-    <li>About Us</li>
-    <li>Contact Us</li>
+    <li><a href="about_us.html">About Us</a></li>
+    <li><a href="contact_us.html">Contact us</a></li>
    </ul>
   </div>
  </nav>
@@ -130,7 +136,7 @@ section{ display: flex;
    <h1>Welcome to MyCinema.com</h1>
    <BR>
 
-   <button><a href="dsw_pro_cutomer.html"> Customer login</a></button>
+   <button><a href="dsw_pro_customer.html"> Customer login</a></button>
    
    <button><a href="dsw_pro_theater.html">Theatre login</a></button>
   </div>

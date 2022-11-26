@@ -276,10 +276,10 @@ echo '<div class="hero">
  <h2 class="headerh2">Welcome '.$q["tname"].'</h2>
   <div class="nav"> 
    
-    <a href=" ">Home || </a>
-    <a href=" "> Movies ||  </a>
-    <a href=" "> About Us || </a>
-    <a href=" "> Contact Us   </a>
+    <a href="index.html">Log Out || </a>
+    <a href="movie.html"> Movies ||  </a>
+    <a href="about_us.html"> About Us || </a>
+    <a href="contact_us.html"> Contact Us   </a>
  </footer>';
 
 
