@@ -30,7 +30,7 @@
      .button-box{
           width:220px;
           margin:35px auto;
-          poistion:relative;
+          position:relative;
           box-shadow:0 0 20px 9px #ff61241f;
           border-radius:30px;
           }
@@ -121,7 +121,7 @@
       line-height:75px;
       padding:0px 100px;
       position:fixed;
-      background-image:linear-gradient(#0..747,#012733)  ;
+      background-image:linear-gradient(#0..747,#012733);
  }
  .top{
      font-size:30px;
@@ -162,7 +162,7 @@ if ($q['ct'] == 0) {
 // add items
 //echo "Welcome".$q['tname'];
 
-?>
+echo'
 
     <div class="hero">
             <div class="form-box">
@@ -182,8 +182,8 @@ if ($q['ct'] == 0) {
                 <input type="text" class="input-field" placeholder="Movie name" name ="Mname" required> 
                 <input type="number" class="input-field" placeholder="Ticket Price(in Rs)" name ="phone" required> 
                 <input type="file" class="input-field" placeholder="photo" name ="photo" required>
+                <input type="hidden" name = "theater" value = "'.$pass.'" >
                 <select class="input-field" name="time" id="time"  required>
-                <input type="hidden" name = "theater" value = ".$pass." >
                 <option value="Choose the timings">Choose the timings</option>
                 <option value="9:00 a.m">9:00 a.m</option>
                 <option value="12:00 p.m">12:00 p.m</option>
@@ -195,9 +195,9 @@ if ($q['ct'] == 0) {
                 <input type="submit" class="submit-btn" value="SUBMIT"></button>
            </form>
     </div>
-  </div>
+  </div>';
   
 
-
+?>
  </body>
 </html>
