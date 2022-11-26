@@ -15,7 +15,7 @@ $c=mysqli_fetch_array($c);
 if($c['ct']!=0)
 {
     echo '<script> alert("already registered"); </script>';
-    //header("Location: dsw_pro_customer.html");
+    header("Location: dsw_pro_customer.html");
 }
 else
 {
