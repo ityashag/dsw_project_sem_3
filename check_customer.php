@@ -26,15 +26,26 @@ $phone = $_POST["phone"];
 $pass = $_POST["pass"];
 $q = mysqli_query($con, "select count(*) as ct , pass from customer where phone_no=$phone");
 $q = mysqli_fetch_array($q);
+$k=0;
 if ($q['ct'] == 0) {
-    echo '<script> alert("Incorrect password") </script>';
+    echo '<script> alert("not found") </script>';
     //header("Location: dsw_pro_cutomer.html");
+    $k=1;
 } else {
     $cpass = $q['pass'];
     if ($cpass == $pass) {
     } else {
-        header("Location: dsw_pro_cutomer.html");
+        $k=1;
+        //header("Location: dsw_pro_cutomer.html");
     }
+}
+if($k==1)
+{
+    // session_start();
+    // $message = 'f';
+    // $_SESSION['message'] = 'success';
+    header("Location: dsw_pro_cutomer.html");
+
 }
 
 $q = mysqli_query($con, "select * from slot");
