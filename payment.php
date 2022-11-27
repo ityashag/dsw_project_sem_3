@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body {
   font-family: Arial;
@@ -15,25 +15,25 @@ body {
 }
 
 .row {
-  display: -ms-flexbox; /* IE10 */
+  display: -ms-flexbox; 
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
+  -ms-flex-wrap: wrap; 
   flex-wrap: wrap;
   margin: 0 -16px;
 }
 
 .col-25 {
-  -ms-flex: 25%; /* IE10 */
+  -ms-flex: 25%; 
   flex: 25%;
 }
 
 .col-50 {
-  -ms-flex: 50%; /* IE10 */
+  -ms-flex: 50%; 
   flex: 50%;
 }
 
 .col-75 {
-  -ms-flex: 75%; /* IE10 */
+  -ms-flex: 75%; 
   flex: 75%;
 }
 
@@ -98,7 +98,6 @@ span.price {
   color: grey;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
   .row {
     flex-direction: column-reverse;
@@ -121,17 +120,19 @@ span.price {
     $mid=$mid['mid'];
     $price=mysqli_query($con,"select mprice from movie where mid=$mid");
     $price=mysqli_fetch_array($price);
+    $mprice=$price['mprice'];
     $price=$price['mprice']*$no;
 
 echo'
-<h2>Responsive Checkout Form</h2>
-<p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p>
+<h2>Checkout Page</h2>
+<p>Select the preferred payment method.</p>
 <div class="row">
   <div class="col-75">
     <div class="container">
       <form method="POST" action="confirmation.php">
         <input type="hidden" name="cid" value="'.$cid.'">
         <input type="hidden" name="sl_id" value="'.$sl_id.'">
+        <input type="hidden" name="mprice" value="'.$mprice.'">
         ';
         for($i=0;$i<count($seats);$i++)
             echo '<input type="hidden" name="seat[]" value="'.$seats[$i].'">';
@@ -139,22 +140,22 @@ echo'
           <div class="col-50">
             <h3>Billing Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <input type="text" id="fname" name="firstname"  required>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <input type="text" id="email" name="email"  required>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <input type="text" id="adr" name="address"  required>
             <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
+            <input type="text" id="city" name="city"  required>
 
             <div class="row">
               <div class="col-50">
                 <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
+                <input type="text" id="state" name="state"  required>
               </div>
               <div class="col-50">
                 <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
+                <input type="text" id="zip" name="zip"  required>
               </div>
             </div>
           </div>
@@ -163,25 +164,22 @@ echo'
             <h3>Payment</h3>
             <label for="fname">Accepted Cards</label>
             <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
+              <img src="credit.PNG" height="40" width="150">
             </div>
             <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <input type="text" id="cname" name="cardname"  required>
             <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <input type="text" id="ccnum" name="cardnumber"  required>
             <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+            <input type="text" id="expmonth" name="expmonth"  required>
             <div class="row">
               <div class="col-50">
                 <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
+                <input type="text" id="expyear" name="expyear"  required>
               </div>
               <div class="col-50">
                 <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
+                <input type="text" id="cvv" name="cvv" required>
               </div>
             </div>
           </div>
@@ -199,7 +197,7 @@ echo'
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>'.$no.'</b></span></h4>
 
       <hr>
-      <p>Total <span class="price" style="color:black"><b>'.$price.'</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>'.$mprice.'*'.$no.'='.$price.'</b></span></p>
     </div>
   </div>
 </div>
