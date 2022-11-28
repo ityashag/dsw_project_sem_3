@@ -277,7 +277,7 @@ echo '<div class="hero">
   <div class="nav"> 
    
     <a href="index.html">Log Out || </a>
-    <a href="movie.html"> Movies ||  </a>
+    <a href="movies.php"> Movies ||  </a>
     <a href="about_us.html"> About Us || </a>
     <a href="contact_us.html"> Contact Us   </a>
  </footer>';
